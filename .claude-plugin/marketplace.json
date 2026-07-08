@@ -1,0 +1,13 @@
+{
+  "name": "adapt2move",
+  "owner": {
+    "name": "Adapt2Move"
+  },
+  "plugins": [
+    {
+      "name": "code-review",
+      "source": "./",
+      "description": "Multi-agent code review: PR review, local diff review, and finding triage for Claude Code."
+    }
+  ]
+}

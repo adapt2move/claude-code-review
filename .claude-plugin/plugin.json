@@ -1,0 +1,12 @@
+{
+  "name": "code-review",
+  "version": "0.1.0",
+  "description": "Multi-agent code review for Claude Code: review a GitHub PR, review local changes, and auto-triage review findings. Ships six specialized reviewer subagents and GitHub review tooling.",
+  "author": {
+    "name": "Adapt2Move"
+  },
+  "homepage": "https://github.com/adapt2move/claude-code-review",
+  "keywords": ["code-review", "pull-request", "github", "subagents", "triage"],
+  "commands": "./commands",
+  "agents": "./agents"
+}
