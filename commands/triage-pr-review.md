@@ -25,13 +25,13 @@ gh pr view $ARGUMENTS --json number,title,headRefName,baseRefName,files,body
 ```
 
 From the threads, keep only **unresolved** threads whose first comment author is **{bot}**.
-From the reviews, find the **last** review with `state: "CHANGES_REQUESTED"` from **{bot}**. Its body often lists standalone issues (in an "Issues Found" section and a "Prompt for AI agents" block) that have no inline thread.
+From the reviews, find the **last** review with `state: "CHANGES_REQUESTED"` from **{bot}**. Its body often lists standalone issues (in an "Issues Found" section) that have no inline thread.
 
 ## Phase 2 — Extract Issues
 
 **Inline thread issues** — each unresolved bot thread is one issue. Extract `thread_id` (`PRT_…`), `file` (`path`), `line`, `description` (first comment), and any `replies`.
 
-**Review-body issues** — parse the review body's "Prompt for AI agents" block. Each `<violation>` (or listed problem) is one issue. Extract `file` and `line` from the `location` attribute and the `description`. These have NO `thread_id`.
+**Review-body issues** — parse the review body's "Issues Found" section. Each listed problem is one issue. Extract its `file`, `line`, and `description`. These have NO `thread_id`.
 
 **Guard:** if there are zero issues total, output "No review findings found." and stop.
 
@@ -87,7 +87,7 @@ For EACH issue, launch an `issue-validator` subagent via the Task tool, in paral
 ### Review-Body Updates
 
 1. Load the current body via `gh-review.sh list-reviews $ARGUMENTS` and find the last CHANGES_REQUESTED review from {bot}.
-2. Wrap resolved issue lines in `~~…~~` and trim resolved violations out of the "Prompt for AI agents" section.
+2. Wrap resolved issue lines in `~~…~~` in the "Issues Found" section.
 3. Submit via `gh-review.sh update-review <review_id> "<updated_body>"`.
 
 ## Out-of-Scope Issue Format (in {lang})

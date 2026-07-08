@@ -51,7 +51,7 @@ Your primary responsibility is communicating findings on the PR:
    - Fully fixed → reply "Fixed: [how]" and resolve the thread.
    - Partially fixed → reply "Missing full fix: [what's done, what remains]" (do not resolve).
    - Outdated / explained by the author → resolve it.
-3. **Previous review bodies** → strike through (`~~…~~`) resolved issues and trim the "Prompt for AI agents" block to only unresolved items.
+3. **Previous review bodies** → strike through (`~~…~~`) resolved issues.
 4. **All issues resolved and no new findings** → submit a short `APPROVE` review.
 5. **User questions in threads** → answer them directly.
 
@@ -110,18 +110,6 @@ REVIEW_ID=$("${CLAUDE_PLUGIN_ROOT}"/scripts/gh-review.sh create-review $ARGUMENT
 [If applicable, a copy-paste-ready code suggestion for finding.suggestion]
 ```
 
-<details>
-<summary>Prompt for AI agents</summary>
-
-```text
-Check if this issue is valid — if so, understand the root cause and fix it.
-
-<violation location="[finding.file]:[finding.line]">
-[finding.description + finding.suggestion, enough for an agent to act on it]
-</violation>
-```
-
-</details>
 </inline_comment>
 
 ### Review Body (Top-Level)
@@ -132,17 +120,6 @@ Check if this issue is valid — if so, understand the root cause and fix it.
 **Issues Found:**
 
 [List of non-inline issues only. Do not reference existing threads or inline comments.]
-
-<details>
-<summary>Prompt for AI agents</summary>
-
-```text
-Check if these issues are valid — if so, understand the root cause of each and fix them.
-
-[Consolidated prompt for all non-inline issues]
-```
-
-</details>
 </review_comment>
 
 If a previous review doesn't match this format, update it. Strike through resolved issues in the review body.

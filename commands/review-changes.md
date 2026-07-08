@@ -46,28 +46,10 @@ Instruct each to report only noteworthy, high-confidence findings. Consider code
 
 ## References
 
-[Important file references, research links, or prepared AI-agent prompts.]
+[Important file references or research links.]
 ```
 
-If there are actionable issues, also write a temporary markdown document under `./tmp/` (create it if needed) containing a copy-paste-ready prompt for an AI agent to fix them. Split into multiple files if there are several large, independent issues.
-
-```ai-prompt-format-example
-Check if this issue is valid — if so, understand the root cause and fix it.
-
-<file name="repo/path/to/file.ts">
-
-<violation number="1" location="repo/path/to/file.ts:86">
-[What exactly is wrong, referencing the code briefly and noting any cross-impact.]
-</violation>
-
-<violation number="2" location="repo/path/to/file.ts:210">
-[Other violations in the same file, if applicable.]
-</violation>
-
-</file>
-```
-
-Keep feedback concise and precise. Stick to the formats above.
+Keep feedback concise and precise. Stick to the format above.
 
 ---
 
