@@ -6,7 +6,5 @@
     "name": "Adapt2Move"
   },
   "homepage": "https://github.com/adapt2move/claude-code-review",
-  "keywords": ["code-review", "pull-request", "github", "subagents", "triage"],
-  "commands": "./commands",
-  "agents": "./agents"
+  "keywords": ["code-review", "pull-request", "github", "subagents", "triage"]
 }
